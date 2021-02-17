@@ -1,0 +1,37 @@
+Link: https://missinglink.ai/guides/convolutional-neural-networks/fully-connected-layers-convolutional-neural-networks-complete-guide/#section3 
+
+Another reference link: https://missinglink.ai/guides/tensorflow/building-convolutional-neural-networks-tensorflow-three-examples/ 
+CNN Architecture: Types of layers
+    -Convolutional layer 
+        -Passes a "filter" over the image
+        -Scans a few pixels at a time and creates a feature map that predicts the class to which each feature belongs
+    -Pooling layer (downsampling)
+        -Reduces amt of info in each feature (from convolution)
+        -Keeps most important info
+        -Usually several rounds of convolution and pooling
+    -Fully connected input layer (flatten)
+        -Takes output of previous layers and "flattens" them
+        -Forms a single vector that becomes input for next part
+    -First fully connected layer
+        -Takes inputs from feature analysis
+        -Then applies weights to predict correct label
+    -Fully connected output layer
+        -Gives final probabilities of each label
+
+Role of fully connected layer in CNN architecture
+    -Objective: take results of convolution + pooling and use them to classify the image into a label (for a simple classification)
+    -Flattens the output of convolution + pooling into a single vector of values
+        -Each representing the probability that a certain feature belongs to a label
+        -Ex: image = cat -> features like whiskers and fur have high probabilities for the label cat
+    -Image shows how input values flow into the first layer of neurons --> multiplied by weights, pass through an activation function
+     which is usually ReLu (like in a classic artificial neural network) --> then passed forward to output layer, every neuron here 
+     representes a classification label
+     -The fully connected part of the CNN network goes through its own backpropagation process to determine the most accurate weights
+        -Each neuron receives weights prioritizing the most appropiate label --> then neurons vote on the labels and the winner of that
+         vote is the classification decision
+
+Cons of CNNs
+    -Tracking experiments --> CNNs have many hyperparameters and need constant adjustment --> easy to lose track of thousands
+     of experiments
+    -Computationally intensive, take a long time to run each iteration
+    -Managing training datasets is difficult and error-prone
