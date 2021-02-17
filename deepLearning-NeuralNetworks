@@ -1,0 +1,117 @@
+Link: https://serokell.io/blog/deep-learning-and-neural-network-guide 
+Deep Learning
+    -One of the subsets of ML that uses DL algorithms to implicitly come up with important conclusions 
+     based on input data
+    -Usually unsupervised or semi-supervised
+    -Based on representation learning
+    -Main architectures
+        -Convolutional neural networks
+        -Recurrent neural networks
+        -Generative adversarial networks
+        -Recursive neural networks
+
+ML vs DL
+    -DL
+        -large amts of data
+        -computation heavy
+        -can draw accurate conclusions from raw data
+        -takes longer to trained
+        -you don't know what are the particular features that the neurons represent
+        -can be used in unexpected ways
+    -ML
+        -small data sets that are high quality
+        -not always computation heavy
+        -carefully pre-processed data
+        -can be trained in a reduced amt of time
+        -logic behind machine's decisions is clear
+        -algorithm built to solve a specific problems
+
+Advantages of DL
+    -Has ability to identify patterns/anomalies in large amts of raw data
+    -Doesn't rely on human expertise as much as ML
+
+Problems of DL
+    -Large amts of quality data are resource-consuming to collect
+    -Can't provide reasons for conclusions --> hard to asses performance of model if you don't know the expected output
+    -Costly and hard to build
+
+Applications of DL in real life
+    -Speech recognition
+    -Pattern recognition
+    -Natural language processing
+    -Discovery of new drugs
+    -Recommender systems
+
+Definition of an artificial neural network (ANN)
+    -ANN represents the structure of a human brain (neurons + synapses organized in layers)
+
+Components of neural networks
+    -Neurons
+        -A basic unit of neural networks that receives info, performs simple calculations, and passes it on
+        -Divided into 3 groups 
+            -Input: receive info from outside world
+            -Hidden: process that info
+            -Output: produce a conclusion
+        -In large neural networks, neurons are organized in layers
+            -Input layer: receives info
+            -Hidden layers
+            -Output layer: provides results
+    -Synapses and weights
+        -Neurons communicate through synapses
+        -Every synapse has a weight, which add to the changes in the input info
+        -The results of the neuron with the greater weight will be dominant in the next neuron, and info from less weighted neurons
+         won't be passed on
+        -During initialization, weights are randomly assigned and optimized later
+    -Bias 
+        -A bias neuron allows for more variations of weights to be stored; adding richer rep of input space to the weights
+
+How ANNs work
+    -Every neuron processes input data to extract a feature
+    -Each neuron has its own weights which are used to weight the features
+    -While training, weights need to be chosen for each neuron so that output is accurate
+    -To perform transformations and get an output, every neuron has an activation function
+        -This combo of functions performs a transformation that is described by a common function F
+        -Activation functions include linear, sigmoid, and hyperbolic differing in the range of values they work with
+
+How do you train an algorithm
+    -Delta is the difference between the data and output of the non
+    -Repeatedly optimize weights of the NN until delta = 0 or close to 0
+    -Iteration
+        -A counter that increases every time the neural network goes through one training set
+        -Total number of completed training sets by the NN
+    -Epoch
+        -Increases one each time you go through the entire training set
+        -The more, the better
+        -One forward and one backward pass of all training examples
+    -Batch
+        -Batch size = number of training examples in one forward/backward pass
+        -Bigger batch size = more memory space needed
+
+Errors
+    -Discrepancy between expected and received output
+    -Should become smaller w each Epoch
+    -Two main ways to calculate
+        -Arctan
+        -Mean Squared Errors
+
+Kinds of NN
+    -Feed forward NN
+        -Simplest; no memory --> no going backward
+        -Can be applied in supervised learning when the data is not sequential or time-dependent
+        -Can be used when you don't know how output should be structured
+    -Recurrent NN
+        -Can process texts, videos, sets of images
+        -Becomes more precise every time bc remebers results of previous iteration and uses that info
+         to make better decisions
+    -Convolutional NN
+        -Used in DL --> can be feed-forward or Recurrent
+    -Generative adversial NN
+        -Unsupervised ML algorithm that is a combo of 2 NN
+            -One (network G) generates patterns
+            -The other (network A) tries to distinguish genuine samples from fake ones
+            -Used to generate photos that are "deepfakes"
+
+Problems NN can solve
+    -Classification
+    -Prediction 
+    -Recognition

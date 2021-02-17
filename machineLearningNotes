@@ -1,0 +1,70 @@
+Link: https://www.toptal.com/machine-learning/machine-learning-theory-an-introductory-primer
+Two types of machine learning
+    -Supervised machine learning --> program is trained on a predefined set of training examples
+                                     which gives it the ability to reach an accurate conclusion 
+                                     when given new data
+    -Unsupervised machine learning --> program is given data and must find patterns and 
+                                       relationships
+-Usually the goal of supervised machine learning is to develop a predictor function
+    -"Learning" is using mathematical algorithms to optimize this funtion to accurately predict
+      the future
+    -Optimization 
+  
+-Machine learning regression
+    -Example: h(x) = 15.54 + 0.75x
+    -Can have more inputs (x1, x2, etc.) and more powers of x as well
+
+-Gradient descent --> minimizing "wrongness"
+    -The wrongness measure is known as the cost function (lost function), J(0)
+    -The input O represents all the coefficients being used in the predictor function
+    -The linear least squares function measures the example's wrongness
+        -Penalty for a bad guess goes up quadratically w the difference between the guess and the
+         correct answer
+    -Cost function computes an avg penalty over all of the training examples
+    -Want to minimize the cost function
+    -Take the gradient of J(0O, 01) which is the derivatives of J(01, 01)
+        -One over 0O and one over 01 --> tells us which way is down
+    -The process of alternating between calculating the current gradient and updating the 0s from the
+     results is known as gradient descent
+  
+-Classification problems in machine learning --> under supervised ML, there are 2 major subcategories
+    -Regression machine learning systems
+        -Systems where the value being predicted falls somewhere on a continuous spectrum
+        -How much? or How many?
+    -Classification machine learning systems
+        -Systems where a yes or no prediction is wanted
+
+-Sigmoid function --> g(z)
+    -When you don't have predictions that are either 0 or 1, but maybe something in the middle
+    -h(x) = g(z)
+        -A curve from 0 to 1 on the y-axis from - to + on the x-axis
+    -z is a representation of the inputs and coefficients
+        -z = 0O + 01x --> h(x) = g(0O + 01x)
+    -It transforms the output into the range between 0 and 1
+  
+-Neural networks
+    -Well suited for machine learning models where the number of inputs is very large
+    -Can be effectively adjusted using techniques similar to gradient descent principles
+
+-Unsupervised machine learning
+    -Used to find relationships within data; no training examples used
+    -Eg. identifying close-knit groups of friends in social network data
+    -Clustering algorithms (k-means); dimensionality reduction systems (principle component analysis)
+
+-Scikit Learn
+    -Focused on ML --> data modeling; but not involved with loading, handling, manipulating, and
+     visualizing of data
+    -Numpy arrays and pandas data frames can be passed directly to the ML algorithms of Scikit
+    -Algorithms:
+        -Regression --> fitting linear and non-linear models
+        -Clustering --> unsupervised Classification
+        -Decision trees --> tree induction + pruning for both classification and regression tasks
+        -Neural networks --> end-to-end training for bothh classification and tression; layers can be 
+         easily defined in a tuple
+        -SVMs --> learning decision boundaries
+        -Naive bayes --> direct probabilistic modeling
+    -Other functions
+        -Ensemble Methods: Boosting, Bagging, Random Forest, Model voting and averaging
+        -Feature Manipulation: Dimensionality reduction, feature selection, feature analysis
+        -Outlier Detection: For detecting outliers and rejecting noise
+        -Model selection and validation: Cross-validation, Hyperparamter tuning, and metrics

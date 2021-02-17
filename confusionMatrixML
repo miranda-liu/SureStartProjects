@@ -1,0 +1,94 @@
+Link: https://machinelearningmastery.com/confusion-matrix-machine-learning/ 
+
+Confusion matrix  
+    -A technique for summarizing the performance of a classification algorithm
+    -Classification accuracy can be misleading if you have unequal # of observations in each class, or more than
+     2 classes in the dataset
+    -The confusion matrix can give a better idea of what the classifical model is getting right and what type of
+     errors it's making
+
+Classification accuracy and its limitations
+    -Classification accuracy = correct predictions/total predictions * 100
+    -Error rate = (1 - (correct predictions/total predictions)) * 100
+    -Hides details you need to understand performace of the classification model
+        -Especially if data has 2+ classes --> don't know if all classes are predicted equally well
+        -Data doesn't have even number of classes --> uneven splits of records between classes
+
+What is a confusion matrix?
+    -A summary of prediction results on a classification problem
+    -The # of correct + incorrect predictions are summarized w count values + broken down by each class
+        -So it shows the ways the classifical model is confused when making predictions
+            -TYPES OF ERRORS, not JUST ERRORS
+
+How to calculate a confusion matrix
+    -Need a test dataset or validation dataset with expected outcome values
+    -Make a prediction for each row in the test dataset
+    -From the expected outcomes + predictions count
+        1. The number of correct predictions for each class
+        2. The number of incorrect predictions for each class, organized by the class that was predicted
+    -Then organize those numbers into a matrix
+        -Expected down the side -> each row of matrix corresponds to a predicted class
+        -Predicted across the top -> each column of the matrix corresponds to an actual class
+        -The total number of correct predictions for a class go into the expected row for that class 
+         value and the predicted column for that class value
+        -In the same way, the total number of incorrect predictions for a class go into the expected row 
+         for that class value and the predicted column for that class value
+
+2-Class Confusion Matrix Case Study
+    -Test dataset of 10 records w expected outcomes and predictions from classification algorithm
+    Expected, 	Predicted
+    man,		woman
+    man, 		man
+    woman,		woman
+    man,		man
+    woman,		man
+    woman, 		woman
+    woman, 		woman
+    man, 		man
+    man, 		woman
+    woman, 		woman
+    -Classification accuracy = 7/10 * 100
+    -Turning into confusion matrix
+        1. Calculate the # of correct predictions for each class
+            -Men classified as men: 3
+            -Women classified as women: 4
+        2. Calculate the # of incorrect predictions for each class, organized by predicted value
+            -Men classified as women: 2
+            -Woman classified as men: 1
+        3. Arrange into 2-class confusion matrix
+                    men	women
+            men		3	1
+            women	2	4
+        4. Interpretations from table
+            -The total actual men in the dataset is the sum of the values on the men column (3 + 2)
+            -The total actual women in the dataset is the sum of values in the women column (1 +4).
+            -The correct values are organized in a diagonal line from top left to bottom-right of the matrix (3 + 4).
+            -More errors were made by predicting men as women than predicting women as men
+
+2-Class problems are special
+    -Usually looking to discriminate btwn observations w a specific outcome, from normal observations
+        -Ex: disease state/event vs no disease state/event
+    -Assign event row as positve, no-event row as negative
+    -Assign event column of predictions as true and no-event as false
+        -“true positive” for correctly predicted event values.
+        -“false positive” for incorrectly predicted event values.
+        -“true negative” for correctly predicted no-event values.
+        -“false negative” for incorrectly predicted no-event values.
+        -This helps with calculating the more advanced classification metrics like precision, recall, specificity, and 
+         sensitivity
+            -Ex: classification accuracy = true positives + true negatives
+
+Code examples of the confusion matrix
+    -Confusion matrix in weka
+    -Confusion matrix in python w scikit-learn: http://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html 
+        from sklearn.metrics import confusion_matrix
+        expected = [1, 1, 0, 1, 0, 0, 1, 0, 0, 0]
+        predicted = [1, 0, 0, 1, 0, 0, 1, 1, 1, 0]
+        results = confusion_matrix(expected, predicted)
+        print(results)
+
+        returns: 
+        [[4 2]
+        [1 3]]
+    -Confusion matrix in r with caret
+
